@@ -7,7 +7,7 @@
 #include "anchorLinkedList.h"
 #include "trees.h"
 
-a
+
 int main()
 {
     node* head = initlinkedList();
