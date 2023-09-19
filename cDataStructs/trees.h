@@ -63,5 +63,18 @@ void printInOrder(tnode* root)
     return; 
 }
 
+void printLeaves(tnode* root)
+{
+    if (root->left == NULL && root->right == NULL)
+    {
+        printf("%d  ", root->data);
+        return;
+    }
+
+    if (root->left != NULL) printLeaves(root->left);
+
+    if (root->right != NULL) printLeaves(root->right);    
+    
+}
 
 #endif

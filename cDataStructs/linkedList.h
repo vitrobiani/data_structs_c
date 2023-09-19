@@ -167,4 +167,27 @@ void delLastDataLinkedList(node** headRef, int data)
     tmp->next = NULL;
 }
 
+void sortAbsValsList(node** hRef)
+{
+    node* cur = *hRef;
+    node* prev = *hRef;
+
+    while(cur != NULL)
+    {
+        if(cur->data < 0)
+        {
+            node* t = (*hRef);
+            (*hRef) = cur;
+            prev->next = cur->next;
+            cur = cur->next;
+            (*hRef)->next = t;
+        }else
+        {
+            prev = cur;
+            cur = cur->next;
+        }
+        
+    }
+}
+
 #endif
