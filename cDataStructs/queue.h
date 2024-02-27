@@ -10,42 +10,12 @@ typedef struct queue
     node* rear;
 }queue;
 
-queue* initQueue()
-{
-    queue* q = malloc(sizeof(queue));
-    q->front = NULL;
-    q->rear = NULL;
-    return q;
-}
+queue* initQueue();
 
-int isQueueEmpty(queue* q) {
-    return q->front == NULL;
-}
+int isQueueEmpty(queue* q);
 
-void enqueue(queue* queue, int data)
-{
-    node* p = newNode(data);
-    
-    if (!isQueueEmpty(q))
-    {
-        q->rear->next = p;
-        q->rear = p;
-    }else
-    {
-        q->front = p;
-        q->rear = p;
-    }
-}
+void enqueue(queue* queue, int data);
 
-int dequeue(queue* q)
-{
-    if (isQueueEmpty(q)) return -1;
-    
-    node* tmp = q->front;
-    q->front = q->front->next
-    int data = tmp->data;
-    free(tmp);
-    return data;
-}
+int dequeue(queue* q);
 
 #endif

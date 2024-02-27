@@ -10,42 +10,14 @@ typedef struct heap
     int *heapArr;
 }heap;
 
-heap* initHeap()
-{
-    heap* h = malloc(sizeof(heap));
+heap* initHeap();
 
-    h->heapArr = malloc(MAX * sizeof(int));
-    h->size = 0;
-}
+void heapSwap(heap** heapRef, int i, int j);
 
-void heapSwap(heap** heapRef, int i, int j)
-{
-    int tmp = (*heapRef)->heapArr[i];
-    (*heapRef)->heapArr[i] = (*heapRef)->heapArr[j];
-    (*heapRef)->heapArr[j] = tmp;
-}
+void addToHeap(heap** heapRef, int data);
 
-void addToHeap(heap** heapRef, int data)
-{
-    int loc = (*heapRef)->size;
-    (*heapRef)->size++;
-    (*heapRef)->heapArr[loc] = data;
+int getHeapMax(heap* h);
 
-    while (data > (*heapRef)->heapArr[loc/2])
-    {
-        heapSwap(heapRef, loc, loc/2);
-    }
-    
-}
-
-int getHeapMax(heap* h)
-{
-    return h->heapArr[0];
-}
-
-int getHeapSize(heap* h)
-{
-    return h->size;
-}
+int getHeapSize(heap* h);
 
 #endif
